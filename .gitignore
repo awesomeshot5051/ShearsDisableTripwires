@@ -22,5 +22,18 @@ eclipse
 run
 runs
 run-data
+.gitignore
+
 
 repo
+MobList/*
+*.docx
+output.txt
+/src/main/java/com/awesomeshot5051/mobfarms/advancements/
+# Ignore Wither Farm specific files
+com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/WitherFarmBlock.java
+com/awesomeshot5051/mobfarms/blocks/tileentity/aggressiveMobs/WitherFarmTileentity.java
+com/awesomeshot5051/mobfarms/items/render/aggressiveMobs/WitherFarmItemRenderer.java
+/src/main/resources/data/mob_farms/recipe/witch_farm.json
+/src/main/resources/data/mob_farms/recipe/aggressive/wither_farm.json
+**/wither_farm*.json
