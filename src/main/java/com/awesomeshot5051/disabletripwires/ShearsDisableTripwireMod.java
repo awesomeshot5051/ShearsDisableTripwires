@@ -27,12 +27,12 @@ public class ShearsDisableTripwireMod {
         // Register ourselves for server and other game events we are interested in
         NeoForge.EVENT_BUS.register(this);
 
-        LOGGER.info("ShearsDisableTripwireMod constructor called!");
+//        LOGGER.info("ShearsDisableTripwireMod constructor called!");
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         // Some preinit code
-        LOGGER.info("ShearsDisableTripwireMod is setting up!");
+//        LOGGER.info("ShearsDisableTripwireMod is setting up!");
     }
 
     @SubscribeEvent
@@ -42,13 +42,17 @@ public class ShearsDisableTripwireMod {
         BlockPos pos = event.getPos();
         BlockState state = world.getBlockState(pos);
 
-        LOGGER.info("Right click block event fired!");
+//        LOGGER.info("Right click block event fired!");
 
         if (state.getBlock() instanceof TripWireBlock && player.getMainHandItem().getItem() instanceof ShearsItem) {
-            LOGGER.info("Player right-clicked a tripwire with shears!");
+//            LOGGER.info("Player right-clicked a tripwire with shears!");
             if (!state.getValue(TripWireBlock.DISARMED)) {
                 world.setBlock(pos, state.setValue(TripWireBlock.DISARMED, true), 3);
-                LOGGER.info("Tripwire detached successfully!");
+//                LOGGER.info("Tripwire detached successfully!");
+                event.setCanceled(true);
+            }
+            else if(state.getValue(TripWireBlock.DISARMED)){
+                world.setBlock(pos,state.setValue(TripWireBlock.DISARMED,false),3);
                 event.setCanceled(true);
             }
         }
